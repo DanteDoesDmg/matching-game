@@ -1,0 +1,61 @@
+$boardWidth:720px;
+$boardHeight:300px;
+$numberOfRows:5;
+$numberOfColumns: 12;
+
+.game_board {
+    margin: 0 auto;
+    width: $boardWidth;
+    height: $boardHeight;
+    font-size: 0;
+    position:relative;
+    border: 5px cyan solid;
+}
+
+.square{
+    width: $boardWidth/$numberOfColumns;
+    height: $boardHeight/$numberOfRows;
+    display: inline-block;
+    position:absolute;
+    &.violet{
+        background:#6e75f8;
+    }
+    &.light_orange{
+        background:#fdbb31;
+    }
+    &.light_blue{
+        background:#45c8fe;
+    }
+    &.dark_blue{
+        background:#1858b8;
+    }
+    &.dark_orange{
+        background:#f77d36;
+    }
+    &:hover{
+        transform-origin: 50% 50%;
+        transition: transform 0.2s;
+        transform: scale(1.2);
+        z-index: 1;
+        -webkit-box-shadow: 0px 0px 43px -8px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 43px -8px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 43px -8px rgba(0,0,0,0.75);
+    }
+}
+
+div[class*='row']{
+    position:absolute;
+    width: 100%;
+}
+
+@for $i from 0 to $numberOfRows{
+    .row-#{$i}{
+        top:$i*$boardHeight/$numberOfRows;
+    }
+}
+
+@for $i from 0 to $numberOfColumns{
+        .square[data-position="#{$i}"]{
+             left:$i*60px;
+        }
+}

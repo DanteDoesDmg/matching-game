@@ -5,7 +5,7 @@ import './App.scss';
 
 function App() {
   return (
-   <div className="gameBoard"/>
+   <Board height={5} width={12}></Board>
   );
 }
 
